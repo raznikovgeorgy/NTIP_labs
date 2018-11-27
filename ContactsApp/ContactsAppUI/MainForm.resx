@@ -117,4 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="DelecteContactButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADr4AAA6+AepCscAAAADFSURBVEhL7ZTLCoMwFAXzU0nXNbtaaP//N4yL4qL1JPdQ
+        JDbeJlK6cEAkD2Y0oObgPxk7dw/eXmW4SfCuH727ybAM5EPnHrg0Eci5XxUJ59Mlyd1T7r0sZVD+3qt8
+        a02kWk5KkWY5WYvk8s9HqGIZsdPg7bSbnKRIEkd5iuwjB5DxyWMAsTkqy21EOY9ojvBN4lxrZCGXM8/m
+        aiNrclnK176NlOSkOqKRk6oIfljYvCUn+Iq5Hz9KmS6DiEZOEFHLD36MMS8yAxbcj0tRKgAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
+  <data name="EditContactButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADr4AAA6+AepCscAAAADjSURBVEhLYxgFMPC4sNDxSUmJJZRLXXBo/qKAJ8XFf54W
+        F/94VlzsCRWmDli392jkhn1H/xxYsWY/0IL/IEuo5pN/0xgi7q4IOrph35GfQEv+gywB+QQUXFAl5AOQ
+        4f+mM/z5P4Ph/93lQcehlvw5OmdRAFQJ+QDZcBgG+WT9viPhUCXkA2yGg/ggcagS8sGo4VjBqOFYwRA2
+        fBGDL80MB4F/+9l2/l/GdIYmhq/qUOJ/t533x78D7N9AllDVcBDorTLIi4lz/A+2BOgTUHBBpagDJtbo
+        h4EsAfkEKjQKgICBAQA3uidiIkC/xgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="AddContactButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADr0AAA69AUf7kK0AAAFvSURBVEhL3VVLTsMwEI2E4ELcgqaN+QRuwF34XIBdVfGR
+        WjXhILChRSS0HABVbBB78wZP4saaBFuITZ/0pMjz5o07tqfRZiMdpzv9TB3HeXLXy1QRZ+qLSN+9PLml
+        GGlYHobe/eAIxss4V7qLKLaA7pDTfgd2tIWkC8msi5RDuWzTDrTgUjLwIdp2zjYyTFvkZH8miu2aoMNC
+        8E1OUnr4PNIVJuVU1Bgmy92r0222tUDgRE4w9C9A57Gfsq0FXTtJXDGkADZ7zbYWWCxd4XA+qvnw/sj2
+        Wj+tZo2Ym0debGuBa/bpCn3h5pEX21r8ewGpRZPXac3Zas52WhcfZSPm5qFAwbYWWLxxhev88yGboSaJ
+        DYOuKR4s21rwQ2sdbr4F0ImF+NAIe5k6kJJCiN0P2E4GdhA8SWtm6oxt2vEzrjEVRYMuwtxrXFfAeSjq
+        p2i2RqNJ+pwWBjp4Glx07fCrXuq/TPqmNcRIw/KNRBR9AyslSk+T9Z+DAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>53</value>
+  </metadata>
 </root>
