@@ -40,7 +40,6 @@ namespace ContactsAppUI
             //contact.VkID = "biggreenelpy";
             //contact.Phone.Number = 79138101010;
             //_project.Contacts.Add(contact);
-            //ContactsListBox.Items.Add(contact.Name);
         }
 
         private void fileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -60,16 +59,6 @@ namespace ContactsAppUI
         }
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void EditContactButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DelecteContactButton_Click(object sender, EventArgs e)
         {
 
         }
@@ -103,10 +92,6 @@ namespace ContactsAppUI
         {
 
         }
-        private void AddContactButton_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void AddContactButton_MouseEnter(object sender, EventArgs e)
         {
@@ -136,6 +121,23 @@ namespace ContactsAppUI
         private void DelecteContactButton_MouseLeave(object sender, EventArgs e)
         {
             InfoLabel.Text = "";
+        }
+
+        private void AddContactButton_Click(object sender, EventArgs e)
+        {
+            Form NewContact = new AddEditContactForm();
+            NewContact.ShowDialog();
+        }
+
+        private void EditContactButton_Click(object sender, EventArgs e)
+        {
+            Form NewContact = new AddEditContactForm();
+            NewContact.ShowDialog();
+        }
+
+        private void DelecteContactButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
