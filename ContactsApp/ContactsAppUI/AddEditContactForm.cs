@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ContactsApp;
 
@@ -25,22 +19,22 @@ namespace ContactsAppUI
         // <summary>
         /// Флаг верности ввода фамилии
         /// </summary>
-        private bool _checkSurnameResult = false;
+        private bool _isSurnameCorrect = false;
 
         /// <summary>
         /// Флаг верности ввода имени
         /// </summary>
-        private bool _checkNameResult = false;
+        private bool _isNameCorrect = false;
 
         /// <summary>
         /// Флаг верности ввода даты
         /// </summary>
-        private bool _checkDataResult = false;
+        private bool _isDataCorrect = false;
 
         /// <summary>
         /// Флаг верности ввода номера телефона
         /// </summary>
-        private bool _checkPhoneResult = false;
+        private bool _isPhoneCorrect = false;
 
         #endregion
 
@@ -51,8 +45,7 @@ namespace ContactsAppUI
 
         private void OKButton_Click(object sender, EventArgs e)
         {
-            if (_checkSurnameResult == true & _checkNameResult == true & _checkDataResult == true &
-                _checkPhoneResult == true)
+            if (_isSurnameCorrect && _isNameCorrect && _isDataCorrect && _isPhoneCorrect)
             {
                 DialogResult = DialogResult.OK;
                 this.Close();
@@ -66,7 +59,7 @@ namespace ContactsAppUI
                 _contact.Surname = SurnameTextBox.Text;
                 SurnameTextBox.BackColor = Color.White;
                 errorProvider1.SetError(SurnameTextBox, String.Empty);
-                _checkSurnameResult = true;
+                _isSurnameCorrect = true;
             }
             catch (ArgumentNullException exception)
             {
@@ -87,7 +80,7 @@ namespace ContactsAppUI
                 _contact.Name = NameTextBox.Text;
                 NameTextBox.BackColor = Color.White;
                 errorProvider1.SetError(NameTextBox, String.Empty);
-                _checkNameResult = true;
+                _isNameCorrect = true;
             }
             catch (ArgumentNullException exception)
             {
@@ -110,7 +103,7 @@ namespace ContactsAppUI
                 _contact.Phone.Number = number;
                 PhoneNumberTextBox.BackColor = Color.White;
                 errorProvider1.SetError(PhoneNumberTextBox, String.Empty);
-                _checkPhoneResult = true;
+                _isPhoneCorrect = true;
             }
             catch (FormatException exception)
             {
@@ -166,7 +159,7 @@ namespace ContactsAppUI
             {
                 _contact.DateOfBirhday = BirthdayDateTimePicker.Value;
                 errorProvider1.SetError(BirthdayDateTimePicker, String.Empty);
-                _checkDataResult = true;
+                _isDataCorrect = true;
             }
             catch (ArgumentException exception)
             {
