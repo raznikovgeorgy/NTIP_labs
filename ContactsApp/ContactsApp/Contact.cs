@@ -106,7 +106,8 @@ namespace ContactsApp
         /// <summary>
         /// Свойство, возвращающее и задающее номер телефона контакта
         /// </summary>
-        public PhoneNumber Phone { get=> _phone;
+        public PhoneNumber Phone {
+            get => _phone;
             set { _phone = value;}
         }
 
@@ -118,13 +119,15 @@ namespace ContactsApp
             get => _email;
             set
             {
-
-                if (value.Length > 50)
+                if (value != null)
                 {
-                    throw new ArgumentException("E-mail слишком длинный, попробуйте придумать E-mail меньше 50-ти символов");
+                    if (value.Length > 50)
+                    {
+                        throw new ArgumentException("E-mail слишком длинный, попробуйте придумать E-mail меньше 50-ти символов");
+                    }
+                    else
+                        _email = value;
                 }
-                else
-                    _email = value;
             }
         }
 
@@ -136,12 +139,15 @@ namespace ContactsApp
             get => _vkID;
             set
             {
-                if (value.Length > 15)
+                if (value != null)
                 {
-                    throw new ArgumentException("ID VK слишком длинный, вы что-то делаете не так");
+                    if (value.Length > 15)
+                    {
+                        throw new ArgumentException("ID VK слишком длинный, вы что-то делаете не так");
+                    }
+                    else
+                        _vkID = value;
                 }
-                else
-                    _vkID = value;
             }
         }
 

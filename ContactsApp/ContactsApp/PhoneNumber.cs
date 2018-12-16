@@ -17,10 +17,10 @@ namespace ContactsApp
         /// </summary>
         private long _phoneNumber;
 
-        public PhoneNumber(long inputPhoneNumber)
-        {
-            _phoneNumber = inputPhoneNumber;
-        }
+        //public PhoneNumber(long inputPhoneNumber)
+        //{
+        //    _phoneNumber = inputPhoneNumber;
+        //}
 
         public PhoneNumber()
         {
@@ -34,13 +34,17 @@ namespace ContactsApp
             get => _phoneNumber;
             set
             {
-                if (value.ToString().Length != 11)
+                if (value.ToString()[0] != '7')
+                {
+                    throw new FormatException("Номер телефона должен начинаться с 7, а был с " + value.ToString()[0]);
+                }
+                else if (value < 9999999999)
                 {
                     throw new ArgumentException("Номер телефона должен быть равен 11-ти символам, а был " + value.ToString().Length);
                 }
-                else if (value.ToString()[0] != '7')
+                else  if (value > 99999999999)
                 {
-                    throw new FormatException("Номер телефона должен начинаться с 7, а был с " + value.ToString()[0]);
+                    throw new ArgumentException("Номер телефона должен быть равен 11-ти символам, а был " + value.ToString().Length);
                 }
                 else
                     _phoneNumber = value;

@@ -32,112 +32,127 @@ namespace ContactsAppUI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //Contact contact = new Contact();
-            //contact.Name = "Георгий";
-            //contact.Surname = "Разников";
-            //contact.DateOfBirhday = new DateTime(1997, 03, 12);
-            //contact.Email = "biggreenelpy@gmail.com";
-            //contact.VkID = "biggreenelpy";
-            //contact.Phone.Number = 79138101010;
-            //_project.Contacts.Add(contact);
-        }
-
-        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void editToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form About = new AboutBox();
-            About.ShowDialog();
-        }
-
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void NameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SurnameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PhoneNumberTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void EmailTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void VKTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AddContactButton_MouseEnter(object sender, EventArgs e)
-        {
-            InfoLabel.Text = "Add new contact";
-        }
-
-        private void AddContactButton_MouseLeave(object sender, EventArgs e)
-        {
-            InfoLabel.Text = "";
-        }
-
-        private void EditContactButton_MouseEnter(object sender, EventArgs e)
-        {
-            InfoLabel.Text = "Edit this contact";
-        }
-
-        private void EditContactButton_MouseLeave(object sender, EventArgs e)
-        {
-            InfoLabel.Text = "";
-        }
-
-        private void DelecteContactButton_MouseEnter(object sender, EventArgs e)
-        {
-            InfoLabel.Text = "Delete this contact";
-        }
-
-        private void DelecteContactButton_MouseLeave(object sender, EventArgs e)
-        {
-            InfoLabel.Text = "";
+            FillContactList(_project.Contacts);
+            //ContactsListBox.SelectedIndex = 0;
         }
 
         private void AddContactButton_Click(object sender, EventArgs e)
         {
-            Form NewContact = new AddEditContactForm();
-            NewContact.ShowDialog();
+            var selectedIndex = ContactsListBox.SelectedIndex;
+            Contact selectedContact = new Contact();
+
+            AddEditContactForm NewContact = new AddEditContactForm();
+            Contact newContact = NewContact.Contact;
+            if (NewContact.ShowDialog() == DialogResult.OK)
+            {
+                _project.Contacts.Add(newContact);
+                ProjectManager.SaveFile(_project, @"c:\contacts.json");
+            }
+            FillContactList(_project.Contacts);
         }
 
         private void EditContactButton_Click(object sender, EventArgs e)
         {
-            Form NewContact = new AddEditContactForm();
-            NewContact.ShowDialog();
+            AddEditContactForm EditContact = new AddEditContactForm();
+            Contact editedContact = EditContact.Contact;
+            int index = ContactsListBox.SelectedIndices[0];
+            editedContact = _project.Contacts[index];
+            EditContact.ContactView(editedContact);
+            if (EditContact.ShowDialog() == DialogResult.OK)
+            {
+                _project.Contacts.RemoveAt(index);
+                _project.Contacts.Add(EditContact.Contact);
+                ProjectManager.SaveFile(_project, @"c:\contacts.json");
+            }
+            FillContactList(_project.Contacts);
         }
 
         private void DelecteContactButton_Click(object sender, EventArgs e)
         {
+            if (ContactsListBox.SelectedIndex != -1)
+            {
+                if (ContactsListBox.Items.Count != 0)
+                {
+                    DialogResult result = MessageBox.Show("Do you realy want to delete this contact? " +
+                                                          _project.Contacts[ContactsListBox.SelectedIndices[0]].Surname +
+                                                          _project.Contacts[ContactsListBox.SelectedIndices[0]].Name,
+                        "Delete this contact?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        int index = ContactsListBox.SelectedIndices[0];
+                        _project.Contacts.RemoveAt(index);
+                        ContactsListBox.Items.RemoveAt(index);
+                        ProjectManager.SaveFile(_project, @"c:\contacts.json");
+                        FillContactList(_project.Contacts);
+                        SurnameTextBox.Text = String.Empty;
+                        NameTextBox.Text = String.Empty;
+                        PhoneNumberTextBox.Text = String.Empty;
+                        EmailTextBox.Text = String.Empty;
+                        VKTextBox.Text = String.Empty;
+                        BirthdayDateTimePicker.Value = new DateTime(2007, 9, 3);
+                    }
+                }
+            }
+            
+        }
 
+        private void addANewContactToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form NewContact = new AddEditContactForm();
+            NewContact.ShowDialog();
+        }
+
+        private void editContactToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form NewContact = new AddEditContactForm();
+            NewContact.ShowDialog();
+        }
+
+        private void deleteContactToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Do you realy want to delete this contact?", "Delete this contact?",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void helpToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form AboutForm = new AboutForm();
+            AboutForm.Show();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        public void FillContactList(List<Contact> contacts)
+        {
+            if (ContactsListBox.Items.Count > 0)
+            {
+                ContactsListBox.Items.Clear();
+            }
+            foreach (Contact contact in contacts)
+            {
+                ContactsListBox.Items.Add(contact.Surname);
+            }
+        }
+
+        private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ContactsListBox.SelectedIndices.Count != 0)
+            {
+                SurnameTextBox.Text = _project.Contacts[ContactsListBox.SelectedIndices[0]].Surname;
+                NameTextBox.Text = _project.Contacts[ContactsListBox.SelectedIndices[0]].Name;
+                BirthdayDateTimePicker.Value = _project.Contacts[ContactsListBox.SelectedIndices[0]].DateOfBirhday;
+                PhoneNumberTextBox.Text = _project.Contacts[ContactsListBox.SelectedIndices[0]].Phone.Number.ToString();
+                VKTextBox.Text = _project.Contacts[ContactsListBox.SelectedIndices[0]].VkID;
+                EmailTextBox.Text = _project.Contacts[ContactsListBox.SelectedIndices[0]].Email;
+            }
         }
     }
 }
