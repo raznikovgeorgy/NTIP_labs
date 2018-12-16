@@ -17,15 +17,6 @@ namespace ContactsApp
         /// </summary>
         private long _phoneNumber;
 
-        //public PhoneNumber(long inputPhoneNumber)
-        //{
-        //    _phoneNumber = inputPhoneNumber;
-        //}
-
-        public PhoneNumber()
-        {
-        }
-
         /// <summary>
         /// /Метод задающий и возвращающий номер телефона
         /// </summary>
