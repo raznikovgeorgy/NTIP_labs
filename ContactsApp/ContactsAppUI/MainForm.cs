@@ -26,7 +26,10 @@ namespace ContactsAppUI
         private void MainForm_Load(object sender, EventArgs e)
         {
             FillContactList(_project.Contacts);
-            ContactsListBox.SelectedIndex = 0;
+            if (ContactsListBox.Items.Count > 0)
+            {
+                ContactsListBox.SelectedIndex = 0;
+            }
         }
 
         private void AddContactButton_Click(object sender, EventArgs e)
@@ -75,11 +78,10 @@ namespace ContactsAppUI
             if (ContactsListBox.Items.Count > 0)
             {
                 ContactsListBox.Items.Clear();
-
-                foreach (Contact contact in contacts)
-                {
-                    ContactsListBox.Items.Add(contact.Surname);
-                }
+            }
+            foreach (Contact contact in contacts)
+            {
+                ContactsListBox.Items.Add(contact.Surname);
             }
         }
 
