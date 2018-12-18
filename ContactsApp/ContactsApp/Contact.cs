@@ -28,12 +28,34 @@ namespace ContactsApp
         /// <summary>
         /// Поле, хранящее e-mail контакта
         /// </summary>
-        private string _email;
+        private string _email = "";
         /// <summary>
         /// Поле, хранящее идентификатор аккаунта ВКонтакте контакта
         /// </summary>
-        private string _vkID;
+        private string _vkID = "";
 
+       
+        /// <summary>
+        /// Свойство, возвращающее и задающее фамилию контакта
+        /// </summary>
+        public string Surname
+        {
+            get => _surname;
+            set
+            {
+                if (value == string.Empty)
+                {
+                    throw new ArgumentException("Поле Фамилии не может быть пустым");
+                }
+                else if (value.Length > 50)
+                {
+                    throw new ArgumentException(
+                        "Слишком длинная фамилия, пожалуйста, придумайте фамилию короче 50-ти символов");
+                }
+                else
+                    _surname = char.ToUpper(value[0]) + value.Substring(1);
+            }
+        }
         /// <summary>
         /// Свойство, возвращающее и задающее имя контакта
         /// </summary>
@@ -44,7 +66,7 @@ namespace ContactsApp
             {
                 if (value == string.Empty)
                 {
-                    throw new ArgumentNullException("Поле имени не может быть пустым");
+                    throw new ArgumentException("Поле имени не может быть пустым");
                 }
                 else if (value.Length > 50)
                 {
@@ -53,28 +75,6 @@ namespace ContactsApp
                 }
                 else
                     _name = char.ToUpper(value[0]) + value.Substring(1);
-            }
-        }
-        /// <summary>
-        /// Свойство, возвращающее и задающее фамилию контакта
-        /// </summary>
-
-        public string Surname
-        {
-            get => _surname;
-            set
-            {
-                if (value == string.Empty)
-                {
-                    throw new ArgumentNullException("Поле Фамилии не может быть пустым");
-                }
-                else if (value.Length > 50)
-                {
-                    throw new ArgumentException(
-                        "Слишком длинная фамилия, пожалуйста, придумайте фамилию короче 50-ти символов");
-                }
-                else
-                    _surname = char.ToUpper(value[0]) + value.Substring(1);
             }
         }
 
@@ -88,11 +88,11 @@ namespace ContactsApp
             {
                 if (value > DateTime.Today)
                 {
-                    throw new ArgumentException("Дата рождения не может быть раньше текущего времени, а была" + value.Date.ToLongDateString());
+                    throw new ArgumentException("Дата рождения не может быть в будущем времени, а была" + value.Date.ToLongDateString());
                 }
                 else if (value.Year < 1900)
                 {
-                    throw new IndexOutOfRangeException("Дата рождения не может быть ранее 1900-го года");
+                    throw new ArgumentException("Дата рождения не может быть ранее 1900-го года");
                 }
                 else
                     _birthday = value;
@@ -115,15 +115,13 @@ namespace ContactsApp
             get => _email;
             set
             {
-                if (value != null)
-                {
-                    if (value.Length > 50)
-                    {
-                        throw new ArgumentException("E-mail слишком длинный, попробуйте придумать E-mail меньше 50-ти символов");
-                    }
-                    else
-                        _email = value;
-                }
+				if (value.Length > 50)
+				{
+					throw new ArgumentException("E-mail слишком длинный, " +
+						"попробуйте придумать E-mail меньше 50-ти символов");
+				}
+				else
+					_email = value;
             }
         }
 
@@ -135,15 +133,12 @@ namespace ContactsApp
             get => _vkID;
             set
             {
-                if (value != null)
+                if (value.Length > 15)
                 {
-                    if (value.Length > 15)
-                    {
-                        throw new ArgumentException("ID VK слишком длинный, вы что-то делаете не так");
-                    }
-                    else
-                        _vkID = value;
+                    throw new ArgumentException("ID VK слишком длинный, вы что-то делаете не так");
                 }
+                else
+                    _vkID = value;
             }
         }
 
@@ -152,7 +147,14 @@ namespace ContactsApp
         /// </summary>
         public object Clone()
         {
-            return this.MemberwiseClone();
+            Contact cloneContact = new Contact();
+            cloneContact.Surname = Surname;
+            cloneContact.Name = Name;
+            cloneContact.DateOfBirhday = DateOfBirhday;
+            cloneContact.Phone.Number = Phone.Number;
+            cloneContact.Email = Email;
+            cloneContact.VkID = VkID;
+            return cloneContact;
         }
     }
 }

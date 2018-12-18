@@ -31,7 +31,7 @@ namespace ContactsApp
             {
                 return JsonConvert.DeserializeObject<Project>(File.ReadAllText(filePath));
             }
-            catch (Exception e)
+            catch (Exception exception)
             {
                 return  new Project();
             }

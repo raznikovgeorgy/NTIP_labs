@@ -58,17 +58,12 @@ namespace ContactsAppUI
             {
                 _contact.Surname = SurnameTextBox.Text;
                 SurnameTextBox.BackColor = Color.White;
-                errorProvider1.SetError(SurnameTextBox, String.Empty);
+                errorProvider1.SetError(SurnameTextBox, string.Empty);
                 _isSurnameCorrect = true;
-            }
-            catch (ArgumentNullException exception)
-            {
-                errorProvider1.SetError(SurnameTextBox, "Фамилия не указана!");
-                SurnameTextBox.BackColor = Color.LightSalmon;
             }
             catch (ArgumentException exception)
             {
-                errorProvider1.SetError(SurnameTextBox, "Фамилия слишком длинная!");
+                errorProvider1.SetError(SurnameTextBox, exception.Message);
                 SurnameTextBox.BackColor = Color.LightSalmon;
             }
         }
@@ -79,17 +74,12 @@ namespace ContactsAppUI
             {
                 _contact.Name = NameTextBox.Text;
                 NameTextBox.BackColor = Color.White;
-                errorProvider1.SetError(NameTextBox, String.Empty);
+                errorProvider1.SetError(NameTextBox, string.Empty);
                 _isNameCorrect = true;
-            }
-            catch (ArgumentNullException exception)
-            {
-                errorProvider1.SetError(NameTextBox, "Имя не указано!");
-                NameTextBox.BackColor = Color.LightSalmon;
             }
             catch (ArgumentException exception)
             {
-                errorProvider1.SetError(NameTextBox, "Имя слишком длинное!");
+                errorProvider1.SetError(NameTextBox, exception.Message);
                 NameTextBox.BackColor = Color.LightSalmon;
             }
         }
@@ -102,12 +92,12 @@ namespace ContactsAppUI
                 long.TryParse(PhoneNumberTextBox.Text, out number);
                 _contact.Phone.Number = number;
                 PhoneNumberTextBox.BackColor = Color.White;
-                errorProvider1.SetError(PhoneNumberTextBox, String.Empty);
+                errorProvider1.SetError(PhoneNumberTextBox, string.Empty);
                 _isPhoneCorrect = true;
             }
             catch (FormatException exception)
             {
-                errorProvider1.SetError(PhoneNumberTextBox, "Номер телефона должен начинаться с 7!");
+                errorProvider1.SetError(PhoneNumberTextBox, exception.Message);
                 PhoneNumberTextBox.BackColor = Color.LightSalmon;
             }
             catch (ArgumentException exception)
@@ -124,11 +114,11 @@ namespace ContactsAppUI
 
                 _contact.Email = EmailTextBox.Text;
                 EmailTextBox.BackColor = Color.White;
-                errorProvider1.SetError(EmailTextBox, String.Empty);
+                errorProvider1.SetError(EmailTextBox, string.Empty);
             }
             catch (ArgumentException exception)
             {
-                errorProvider1.SetError(EmailTextBox, "Email слишком длинный!");
+                errorProvider1.SetError(EmailTextBox, exception.Message);
                 EmailTextBox.BackColor = Color.LightSalmon;
             }
         }
@@ -139,11 +129,11 @@ namespace ContactsAppUI
             {
                 _contact.VkID = VKTextBox.Text;
                 VKTextBox.BackColor = Color.White;
-                errorProvider1.SetError(VKTextBox, String.Empty);
+                errorProvider1.SetError(VKTextBox, string.Empty);
             }
             catch (ArgumentException exception)
             {
-                errorProvider1.SetError(VKTextBox, "ID VK слишком длинный!");
+                errorProvider1.SetError(VKTextBox, exception.Message);
                 VKTextBox.BackColor = Color.LightSalmon;
             }
         }
@@ -158,16 +148,16 @@ namespace ContactsAppUI
             try
             {
                 _contact.DateOfBirhday = BirthdayDateTimePicker.Value;
-                errorProvider1.SetError(BirthdayDateTimePicker, String.Empty);
+                errorProvider1.SetError(BirthdayDateTimePicker, string.Empty);
                 _isDataCorrect = true;
             }
             catch (ArgumentException exception)
             {
-                errorProvider1.SetError(BirthdayDateTimePicker, "Дата рождения не может быть сегодня или будущее время!");
+                errorProvider1.SetError(BirthdayDateTimePicker, exception.Message);
             }
             catch (IndexOutOfRangeException exception)
             {
-                errorProvider1.SetError(BirthdayDateTimePicker, "Дата рождения не может быть раньше 1900-го года!");
+                errorProvider1.SetError(BirthdayDateTimePicker, exception.Message);
             }
         }
 

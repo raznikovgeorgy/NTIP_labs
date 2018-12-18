@@ -146,11 +146,11 @@ namespace ContactsAppUI
                         ContactsListBox.Items.RemoveAt(index);
                         ProjectManager.SaveFile(_project, @"c:\contacts.json");
                         FillContactList(_project.Contacts);
-                        SurnameTextBox.Text = String.Empty;
-                        NameTextBox.Text = String.Empty;
-                        PhoneNumberTextBox.Text = String.Empty;
-                        EmailTextBox.Text = String.Empty;
-                        VKTextBox.Text = String.Empty;
+                        SurnameTextBox.Clear();
+                        NameTextBox.Clear();
+                        PhoneNumberTextBox.Clear();
+                        EmailTextBox.Clear();
+                        VKTextBox.Clear();
                         BirthdayDateTimePicker.Value = new DateTime(2007, 9, 3);
                     }
                 }

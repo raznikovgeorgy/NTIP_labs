@@ -144,7 +144,7 @@
             this.MaximumSize = new System.Drawing.Size(313, 285);
             this.MinimumSize = new System.Drawing.Size(313, 285);
             this.Name = "AboutForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "About";
             this.ResumeLayout(false);
             this.PerformLayout();
