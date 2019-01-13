@@ -64,12 +64,14 @@ namespace ContactsAppUI
             this.BirthdayPannel = new System.Windows.Forms.Panel();
             this.BirthdayListLabel = new System.Windows.Forms.Label();
             this.BirthdayNotificationLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.BirthdayPannel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // FindLabel
@@ -423,6 +425,7 @@ namespace ContactsAppUI
             this.BirthdayPannel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BirthdayPannel.BackColor = System.Drawing.Color.LightCyan;
+            this.BirthdayPannel.Controls.Add(this.pictureBox1);
             this.BirthdayPannel.Controls.Add(this.BirthdayListLabel);
             this.BirthdayPannel.Controls.Add(this.BirthdayNotificationLabel);
             this.BirthdayPannel.Location = new System.Drawing.Point(8, 274);
@@ -434,7 +437,7 @@ namespace ContactsAppUI
             // BirthdayListLabel
             // 
             this.BirthdayListLabel.AutoSize = true;
-            this.BirthdayListLabel.Location = new System.Drawing.Point(3, 22);
+            this.BirthdayListLabel.Location = new System.Drawing.Point(105, 22);
             this.BirthdayListLabel.Margin = new System.Windows.Forms.Padding(3);
             this.BirthdayListLabel.Name = "BirthdayListLabel";
             this.BirthdayListLabel.Size = new System.Drawing.Size(0, 13);
@@ -443,12 +446,22 @@ namespace ContactsAppUI
             // BirthdayNotificationLabel
             // 
             this.BirthdayNotificationLabel.AutoSize = true;
-            this.BirthdayNotificationLabel.Location = new System.Drawing.Point(3, 3);
+            this.BirthdayNotificationLabel.Location = new System.Drawing.Point(105, 3);
             this.BirthdayNotificationLabel.Margin = new System.Windows.Forms.Padding(3);
             this.BirthdayNotificationLabel.Name = "BirthdayNotificationLabel";
             this.BirthdayNotificationLabel.Size = new System.Drawing.Size(140, 13);
             this.BirthdayNotificationLabel.TabIndex = 0;
             this.BirthdayNotificationLabel.Text = "Сегодня день рождения у:";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(96, 96);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // MainForm
             // 
@@ -475,6 +488,7 @@ namespace ContactsAppUI
             this.splitContainer1.ResumeLayout(false);
             this.BirthdayPannel.ResumeLayout(false);
             this.BirthdayPannel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -514,6 +528,7 @@ namespace ContactsAppUI
         private System.Windows.Forms.Panel BirthdayPannel;
         private System.Windows.Forms.Label BirthdayNotificationLabel;
         private System.Windows.Forms.Label BirthdayListLabel;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

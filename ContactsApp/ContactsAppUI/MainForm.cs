@@ -42,7 +42,6 @@ namespace ContactsAppUI
                 ContactsListBox.SelectedIndex = 0;
             }
             CheckTodayBirthday();
-            this.Text = _filePath;
         }
 
         /// <summary>
