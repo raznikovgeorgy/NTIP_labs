@@ -62,8 +62,8 @@ namespace ContactsAppUI
             this.EditContactButton = new System.Windows.Forms.Button();
             this.AddContactButton = new System.Windows.Forms.Button();
             this.BirthdayPannel = new System.Windows.Forms.Panel();
-            this.BirthdayNotificationLabel = new System.Windows.Forms.Label();
             this.BirthdayListLabel = new System.Windows.Forms.Label();
+            this.BirthdayNotificationLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -431,6 +431,15 @@ namespace ContactsAppUI
             this.BirthdayPannel.TabIndex = 16;
             this.BirthdayPannel.Visible = false;
             // 
+            // BirthdayListLabel
+            // 
+            this.BirthdayListLabel.AutoSize = true;
+            this.BirthdayListLabel.Location = new System.Drawing.Point(3, 22);
+            this.BirthdayListLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.BirthdayListLabel.Name = "BirthdayListLabel";
+            this.BirthdayListLabel.Size = new System.Drawing.Size(0, 13);
+            this.BirthdayListLabel.TabIndex = 1;
+            // 
             // BirthdayNotificationLabel
             // 
             this.BirthdayNotificationLabel.AutoSize = true;
@@ -440,15 +449,6 @@ namespace ContactsAppUI
             this.BirthdayNotificationLabel.Size = new System.Drawing.Size(140, 13);
             this.BirthdayNotificationLabel.TabIndex = 0;
             this.BirthdayNotificationLabel.Text = "Сегодня день рождения у:";
-            // 
-            // BirthdayListLabel
-            // 
-            this.BirthdayListLabel.AutoSize = true;
-            this.BirthdayListLabel.Location = new System.Drawing.Point(3, 22);
-            this.BirthdayListLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.BirthdayListLabel.Name = "BirthdayListLabel";
-            this.BirthdayListLabel.Size = new System.Drawing.Size(0, 13);
-            this.BirthdayListLabel.TabIndex = 1;
             // 
             // MainForm
             // 

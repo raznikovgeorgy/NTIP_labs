@@ -19,7 +19,7 @@ DefaultDirName={pf}\{#MyAppName}
 DisableProgramGroupPage=yes
 OutputDir=Installers
 OutputBaseFilename=ContactsAppSetup
-SetupIconFile=..\Resources\Contacts.ico
+SetupIconFile=..\Resources\MainIco.ico
 Compression=lzma
 SolidCompression=yes
 
