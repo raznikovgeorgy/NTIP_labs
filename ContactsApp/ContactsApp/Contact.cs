@@ -135,7 +135,7 @@ namespace ContactsApp
             {
                 if (value.Length > 15)
                 {
-                    throw new ArgumentException("ID VK слишком длинный, вы что-то делаете не так");
+                    throw new ArgumentException("ID VK слишком длинный");
                 }
                 else
                     _vkID = value;
@@ -143,7 +143,7 @@ namespace ContactsApp
         }
 
         /// <summary>
-        /// Метод, реализующий интерфейс клонирования
+        /// Свойство, реализующее интерфейс клонирования
         /// </summary>
         public object Clone()
         {

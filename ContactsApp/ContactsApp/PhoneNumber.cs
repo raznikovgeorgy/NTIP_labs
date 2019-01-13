@@ -14,7 +14,7 @@ namespace ContactsApp
         private long _phoneNumber;
 
         /// <summary>
-        /// /Метод задающий и возвращающий номер телефона
+        /// /Свойство, задающее и возвращающее номер телефона
         /// </summary>
         public long Number
         {

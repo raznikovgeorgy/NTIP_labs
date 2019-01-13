@@ -7,6 +7,9 @@ namespace ContactsAppUI
 {
     public partial class AddEditContactForm : Form
     {
+        /// <summary>
+        /// Инициализация формы
+        /// </summary>
         public AddEditContactForm()
         {
             InitializeComponent();
@@ -38,11 +41,19 @@ namespace ContactsAppUI
 
         #endregion
 
+        /// <summary>
+        /// Свойство, возвращающее контакт
+        /// </summary>
         public Contact Contact
         {
             get => _contact;
         }
 
+        /// <summary>
+        /// Кнопка ОК. Выполняется валидация даных
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OKButton_Click(object sender, EventArgs e)
         {
             if (_isSurnameCorrect && _isNameCorrect && _isDataCorrect && _isPhoneCorrect)
@@ -52,8 +63,14 @@ namespace ContactsAppUI
             }
         }
 
+        /// <summary>
+        /// Проверка ввода фамилии
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SurnameTextBox_TextChanged(object sender, EventArgs e)
         {
+            UpperFirstSymbol(sender);
             try
             {
                 _contact.Surname = SurnameTextBox.Text;
@@ -68,8 +85,14 @@ namespace ContactsAppUI
             }
         }
 
+        /// <summary>
+        /// Проверка ввода имени
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NameTextBox_TextChanged(object sender, EventArgs e)
         {
+            UpperFirstSymbol(sender);
             try
             {
                 _contact.Name = NameTextBox.Text;
@@ -84,6 +107,11 @@ namespace ContactsAppUI
             }
         }
 
+        /// <summary>
+        /// Проверка ввода номера телефона
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PhoneNumberTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -107,6 +135,11 @@ namespace ContactsAppUI
             }
         }
 
+        /// <summary>
+        /// Проверка ввода Email
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EmailTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -123,6 +156,11 @@ namespace ContactsAppUI
             }
         }
 
+        /// <summary>
+        /// Проверка ввода ID VK
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void VKTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -138,11 +176,21 @@ namespace ContactsAppUI
             }
         }
 
+        /// <summary>
+        /// Кнопка отмены создания/редактирования контакта
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelButton1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Проверка ввода даты рождения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BirthdayDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             try
@@ -159,6 +207,17 @@ namespace ContactsAppUI
             {
                 errorProvider1.SetError(BirthdayDateTimePicker, exception.Message);
             }
+        }
+
+        /// <summary>
+        /// Метод, приводящий первую букву в поле ввода к верхнему регистру
+        /// </summary>
+        /// <param name="sender"></param>
+        private void UpperFirstSymbol(object sender)
+        {
+            if (((TextBox)sender).Text.Length == 1)
+                ((TextBox)sender).Text = ((TextBox)sender).Text.ToUpper();
+            ((TextBox)sender).Select(((TextBox)sender).Text.Length, 0);
         }
 
         /// <summary>

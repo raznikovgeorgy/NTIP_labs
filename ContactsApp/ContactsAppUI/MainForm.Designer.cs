@@ -61,11 +61,15 @@ namespace ContactsAppUI
             this.ContactsListBox = new System.Windows.Forms.ListBox();
             this.EditContactButton = new System.Windows.Forms.Button();
             this.AddContactButton = new System.Windows.Forms.Button();
+            this.BirthdayPannel = new System.Windows.Forms.Panel();
+            this.BirthdayNotificationLabel = new System.Windows.Forms.Label();
+            this.BirthdayListLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.BirthdayPannel.SuspendLayout();
             this.SuspendLayout();
             // 
             // FindLabel
@@ -232,6 +236,7 @@ namespace ContactsAppUI
             this.FindTextBox.Name = "FindTextBox";
             this.FindTextBox.Size = new System.Drawing.Size(204, 20);
             this.FindTextBox.TabIndex = 1;
+            this.FindTextBox.TextChanged += new System.EventHandler(this.FindTextBox_TextChanged);
             // 
             // NameTextBox
             // 
@@ -326,6 +331,7 @@ namespace ContactsAppUI
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.White;
+            this.splitContainer1.Panel2.Controls.Add(this.BirthdayPannel);
             this.splitContainer1.Panel2.Controls.Add(this.VKTextBox);
             this.splitContainer1.Panel2.Controls.Add(this.SurnameTextBox);
             this.splitContainer1.Panel2.Controls.Add(this.EmailTextBox);
@@ -412,6 +418,38 @@ namespace ContactsAppUI
             this.AddContactButton.UseVisualStyleBackColor = true;
             this.AddContactButton.Click += new System.EventHandler(this.AddContactButton_Click);
             // 
+            // BirthdayPannel
+            // 
+            this.BirthdayPannel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BirthdayPannel.BackColor = System.Drawing.Color.LightCyan;
+            this.BirthdayPannel.Controls.Add(this.BirthdayListLabel);
+            this.BirthdayPannel.Controls.Add(this.BirthdayNotificationLabel);
+            this.BirthdayPannel.Location = new System.Drawing.Point(8, 274);
+            this.BirthdayPannel.Name = "BirthdayPannel";
+            this.BirthdayPannel.Size = new System.Drawing.Size(282, 100);
+            this.BirthdayPannel.TabIndex = 16;
+            this.BirthdayPannel.Visible = false;
+            // 
+            // BirthdayNotificationLabel
+            // 
+            this.BirthdayNotificationLabel.AutoSize = true;
+            this.BirthdayNotificationLabel.Location = new System.Drawing.Point(3, 3);
+            this.BirthdayNotificationLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.BirthdayNotificationLabel.Name = "BirthdayNotificationLabel";
+            this.BirthdayNotificationLabel.Size = new System.Drawing.Size(140, 13);
+            this.BirthdayNotificationLabel.TabIndex = 0;
+            this.BirthdayNotificationLabel.Text = "Сегодня день рождения у:";
+            // 
+            // BirthdayListLabel
+            // 
+            this.BirthdayListLabel.AutoSize = true;
+            this.BirthdayListLabel.Location = new System.Drawing.Point(3, 22);
+            this.BirthdayListLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.BirthdayListLabel.Name = "BirthdayListLabel";
+            this.BirthdayListLabel.Size = new System.Drawing.Size(0, 13);
+            this.BirthdayListLabel.TabIndex = 1;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -421,7 +459,7 @@ namespace ContactsAppUI
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(100, 100);
+            this.MinimumSize = new System.Drawing.Size(574, 440);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Contacts App";
@@ -435,6 +473,8 @@ namespace ContactsAppUI
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.BirthdayPannel.ResumeLayout(false);
+            this.BirthdayPannel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -471,6 +511,9 @@ namespace ContactsAppUI
         private System.Windows.Forms.Button DelecteContactButton;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
         private System.Windows.Forms.Label InfoLabel;
+        private System.Windows.Forms.Panel BirthdayPannel;
+        private System.Windows.Forms.Label BirthdayNotificationLabel;
+        private System.Windows.Forms.Label BirthdayListLabel;
     }
 }
 
