@@ -88,7 +88,7 @@ namespace ContactsApp
             {
                 if (value > DateTime.Today)
                 {
-                    throw new ArgumentException("Дата рождения не может быть в будущем времени, а была" + value.Date.ToLongDateString());
+                    throw new ArgumentException("Дата рождения не может быть в будущем времени, а была " + value.Date.ToLongDateString());
                 }
                 else if (value.Year < 1900)
                 {
