@@ -34,6 +34,9 @@
   <PropertyGroup>
     <ApplicationIcon>MainIco.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -116,12 +119,16 @@
   <PropertyGroup>
     <PostBuildEvent>md $(SolutionDir)InstallScripts\Release
 md $(SolutionDir)InstallScripts\Installers
-rm $(ProjectDir)$(OutDir)*.pdb
-rm $(ProjectDir)$(OutDir)*.xml
-rm $(ProjectDir)$(OutDir)*.exe.config
 xcopy $(ProjectDir)$(OutDir)*.dll $(SolutionDir)InstallScripts\Release
 xcopy $(ProjectDir)$(OutDir)*.exe $(SolutionDir)InstallScripts\Release
+del $(userprofile)\documents\Contacts.contactApp
 "C:\Program Files\Inno Setup\ISCC.exe" $(SolutionDir)InstallScripts\InstallScript.iss
+del  $(SolutionDir)InstallScripts\Release\*.dll
+del  $(SolutionDir)InstallScripts\Release\*.exe
 rm $(SolutionDir)InstallScripts\Release</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
 </Project>

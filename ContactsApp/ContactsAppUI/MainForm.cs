@@ -14,7 +14,7 @@ namespace ContactsAppUI
         /// <summary>
         /// Стандартный путь к файлу со списком контактов
         /// </summary>
-        private static string _filePath = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + @"/Contacts.txt";
+        private static string _filePath = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + @"\Contacts.contactsApp";
         /// <summary>
         /// 
         /// </summary>
@@ -42,6 +42,7 @@ namespace ContactsAppUI
                 ContactsListBox.SelectedIndex = 0;
             }
             CheckTodayBirthday();
+            this.Text = _filePath;
         }
 
         /// <summary>
