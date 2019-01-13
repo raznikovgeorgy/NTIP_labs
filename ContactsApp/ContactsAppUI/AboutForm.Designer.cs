@@ -98,7 +98,7 @@
             this.CopyrightLabel.Name = "CopyrightLabel";
             this.CopyrightLabel.Size = new System.Drawing.Size(177, 13);
             this.CopyrightLabel.TabIndex = 5;
-            this.CopyrightLabel.Text = "Copyright by Georgy Raznikov 2018";
+            this.CopyrightLabel.Text = "Copyright by Georgy Raznikov 2019";
             // 
             // EmailLinkLabel
             // 
