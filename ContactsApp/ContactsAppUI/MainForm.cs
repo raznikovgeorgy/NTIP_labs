@@ -223,10 +223,10 @@ namespace ContactsAppUI
             {
                 if (ContactsListBox.Items.Count != 0)
                 {
-                    DialogResult result = MessageBox.Show("Do you realy want to delete this contact? " +
+                    DialogResult result = MessageBox.Show("Do you really want to remove this contact? " +
                                                           _project.Contacts[ContactsListBox.SelectedIndices[0]].Surname +
                                                           " " + _project.Contacts[ContactsListBox.SelectedIndices[0]].Name,
-                                                          "Delete this contact?", MessageBoxButtons.YesNoCancel,
+                                                          "Remove this contact?", MessageBoxButtons.YesNoCancel,
                                                           MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
