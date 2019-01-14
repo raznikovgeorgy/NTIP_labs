@@ -125,7 +125,7 @@ del $(userprofile)\documents\Contacts.contactApp
 "C:\Program Files\Inno Setup\ISCC.exe" $(SolutionDir)InstallScripts\InstallScript.iss
 del  $(SolutionDir)InstallScripts\Release\*.dll
 del  $(SolutionDir)InstallScripts\Release\*.exe
-rm $(SolutionDir)InstallScripts\Release</PostBuildEvent>
+rd $(SolutionDir)InstallScripts\Release</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>
